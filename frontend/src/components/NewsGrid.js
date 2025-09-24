@@ -1,10 +1,12 @@
 // src/components/NewsGrid.js
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NewsItem from './NewsItem';
 
 const PAGE_SIZE = 8; // 한번에 추가로 보여줄 개수
 
 const NewsGrid = ({ newsData, searchQuery }) => {
+  const navigate = useNavigate();
   // ✅ 반드시 컴포넌트 최상단에서 선언
   const [bookmarkedNews, setBookmarkedNews] = useState(new Set());
   const [likedNews, setLikedNews] = useState(new Set());
@@ -47,9 +49,12 @@ const NewsGrid = ({ newsData, searchQuery }) => {
   };
 
   const handleNewsDetail = (news) => {
-    const url = news.origin_url || news.url;
-    if (url) window.open(url, '_blank', 'noopener');
-    else alert(`뉴스 상세 페이지: ${news.title}`);
+    // 내부 상세 페이지로 이동
+    if (news.id) {
+      navigate(`/news/${news.id}`);
+    } else {
+      alert('기사 ID를 찾을 수 없습니다.');
+    }
   };
 
   // 검색 필터링

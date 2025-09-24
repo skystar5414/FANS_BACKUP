@@ -18,6 +18,7 @@ import MyPage from './pages/MyPage';
 import DeleteAccount from './pages/DeleteAccount';
 import LoginSuccessPage from './pages/LoginSuccessPage';
 import LoginErrorPage from './pages/LoginErrorPage';
+import NewsDetailPage from './pages/NewsDetailPage';
 
 function HomePage() {
   /* -------------------- 상태 -------------------- */
@@ -344,6 +345,7 @@ function App() {
         <Route path="/delete-account" element={<DeleteAccount />} />
         <Route path="/login-success" element={<LoginSuccessPage />} />
         <Route path="/login-error" element={<LoginErrorPage />} />
+        <Route path="/news/:id" element={<NewsDetailPage />} />
       </Routes>
     </Router>
   );

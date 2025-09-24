@@ -13,6 +13,7 @@ function NewsDetailPage() {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [comments, setComments] = useState([
+    
     {
       id: 1,
       author: '김민수',
